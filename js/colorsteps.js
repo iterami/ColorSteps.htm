@@ -1,5 +1,8 @@
-function random_number(){
-    return Math.floor(Math.random() * 9);
+function random_hex(){
+    return '#'
+      + Math.floor(Math.random() * 9)
+      + Math.floor(Math.random() * 9)
+      + Math.floor(Math.random() * 9);
 }
 
 function resize(){
@@ -9,22 +12,10 @@ function resize(){
     width = window.innerWidth;
     document.getElementById('canvas').width = width;
 
-    document.getElementById('canvas').style.background =
-      '#'
-      + random_number()
-      + random_number()
-      + random_number();
+    document.getElementById('canvas').style.background = random_hex();
 
-    color_left =
-      '#'
-      + random_number()
-      + random_number()
-      + random_number();
-    color_right =
-      '#'
-      + random_number()
-      + random_number()
-      + random_number();
+    color_left = random_hex();
+    color_right = random_hex();
 
     canvas.clearRect(
       0,
