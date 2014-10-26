@@ -1,8 +1,9 @@
 function random_hex(){
+    var choices = '0123456789abcdef';
     return '#'
-      + Math.floor(Math.random() * 9)
-      + Math.floor(Math.random() * 9)
-      + Math.floor(Math.random() * 9);
+      + choices.charAt(Math.floor(Math.random() * 16))
+      + choices.charAt(Math.floor(Math.random() * 16))
+      + choices.charAt(Math.floor(Math.random() * 16));
 }
 
 function resize(){
