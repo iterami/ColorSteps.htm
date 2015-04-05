@@ -94,8 +94,11 @@ var height = 0;
 var width = 0;
 
 window.onkeyup = resize;
-window.onmousedown = resize;
-window.onresize = resize;
-window.ontouchstart = resize;
 
-resize();
+window.onload = resize;
+
+window.onmousedown = resize;
+
+window.onresize = resize;
+
+window.ontouchstart = resize;
