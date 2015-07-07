@@ -1,3 +1,5 @@
+'use strict';
+
 function random_hex(){
     var choices = '0123456789abcdef';
     return '#'
