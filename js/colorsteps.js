@@ -9,16 +9,14 @@ function random_hex(){
 }
 
 function resize(){
-    height = window.innerHeight;
+    var color_left = random_hex();
+    var color_right = random_hex();
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+
     document.getElementById('canvas').height = height;
-
-    width = window.innerWidth;
-    document.getElementById('canvas').width = width;
-
     document.getElementById('canvas').style.background = random_hex();
-
-    color_left = random_hex();
-    color_right = random_hex();
+    document.getElementById('canvas').width = width;
 
     canvas.clearRect(
       0,
@@ -90,17 +88,9 @@ function resize(){
 }
 
 var canvas = document.getElementById('canvas').getContext('2d');
-var color_left = '';
-var color_right = '';
-var height = 0;
-var width = 0;
 
 window.onkeyup = resize;
-
 window.onload = resize;
-
 window.onmousedown = resize;
-
 window.onresize = resize;
-
 window.ontouchstart = resize;
