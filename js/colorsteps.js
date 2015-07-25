@@ -34,7 +34,7 @@ function resize(){
         do{
             var column_x =
               column * 200
-              + (row % 2 == 0 ? 100 : 0);
+              + (row % 2 === 0 ? 100 : 0);
 
             canvas.beginPath();
             canvas.moveTo(
@@ -62,7 +62,7 @@ function resize(){
         do{
             column_x =
               column * 200
-              - (row % 2 == 0 ? 100 : 0);
+              - (row % 2 === 0 ? 100 : 0);
 
             canvas.beginPath();
             canvas.moveTo(
