@@ -1,5 +1,5 @@
-ColorSteps.htm
---------------
+iterami/ColorSteps.htm
+----------------------
 
 Pseudo-3D step pattern generator.
 
