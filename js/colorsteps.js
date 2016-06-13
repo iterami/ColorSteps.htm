@@ -1,10 +1,6 @@
 'use strict';
 
 function draw_logic(){
-    var color_left = random_hex();
-    var color_right = random_hex();
-    document.getElementById('canvas').style.background = random_hex();
-
     var row = Math.floor(height / 80);
     do{
         var row_y = height - row * 80 - 50;
@@ -79,7 +75,17 @@ function resize_logic(){
     draw();
 }
 
-window.onkeyup = draw_logic;
+function update_colors(){
+    color_left = random_hex();
+    color_right = random_hex();
+    document.getElementById('canvas').style.background = random_hex();
+    draw_logic();
+}
+
+var color_left = random_hex();
+var color_right = random_hex();
+
+window.onkeyup = update_colors;
 window.onload = init_canvas;
-window.onmousedown = draw_logic;
-window.ontouchstart = draw_logic;
+window.onmousedown = update_colors;
+window.ontouchstart = update_colors;
