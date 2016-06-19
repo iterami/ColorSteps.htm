@@ -85,7 +85,23 @@ function update_colors(){
 var color_left = random_hex();
 var color_right = random_hex();
 
-window.onkeyup = update_colors;
-window.onload = init_canvas;
-window.onmousedown = update_colors;
-window.ontouchstart = update_colors;
+window.onload = function(e){
+    init_canvas();
+    init_input(
+      {
+        'all': {
+          'todo': function(){
+              update_colors();
+          }
+        },
+      },
+      {
+        'mousedown': {
+          'todo': function(){
+              update_colors();
+          },
+        },
+      }
+    );
+    update_colors();
+};
