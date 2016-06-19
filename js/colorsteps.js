@@ -90,16 +90,12 @@ window.onload = function(e){
     init_input(
       {
         'all': {
-          'todo': function(){
-              update_colors();
-          }
+          'todo': update_colors,
         },
       },
       {
         'mousedown': {
-          'todo': function(){
-              update_colors();
-          },
+          'todo': update_colors,
         },
       }
     );
