@@ -87,7 +87,7 @@ var color_right = random_hex();
 
 window.onload = function(e){
     init_canvas();
-    init_input(
+    input_init(
       {
         'all': {
           'todo': update_colors,
@@ -99,5 +99,6 @@ window.onload = function(e){
         },
       }
     );
+
     update_colors();
 };
