@@ -1,64 +1,64 @@
 'use strict';
 
 function draw_logic(){
-    var row = Math.floor(height / 80);
+    var row = Math.floor(canvas_height / 80);
     do{
-        var row_y = height - row * 80 - 50;
+        var row_y = canvas_height - row * 80 - 50;
 
-        buffer.fillStyle = color_left;
-        var column = Math.floor(width / 200);
+        canvas_buffer.fillStyle = color_left;
+        var column = Math.floor(canvas_width / 200);
         do{
             var column_x =
               column * 200
               + (row % 2 === 0 ? 100 : 0);
 
-            buffer.beginPath();
-            buffer.moveTo(
+            canvas_buffer.beginPath();
+            canvas_buffer.moveTo(
               column_x,
               row_y
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x + 100,
               row_y - 30
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x + 100,
               row_y + 20
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x,
               row_y + 50
             );
-            buffer.closePath();
-            buffer.fill();
+            canvas_buffer.closePath();
+            canvas_buffer.fill();
         }while(column--);
 
-        buffer.fillStyle = color_right;
-        column = Math.floor(width / 200);
+        canvas_buffer.fillStyle = color_right;
+        column = Math.floor(canvas_width / 200);
         do{
             column_x =
               column * 200
               - (row % 2 === 0 ? 100 : 0);
 
-            buffer.beginPath();
-            buffer.moveTo(
+            canvas_buffer.beginPath();
+            canvas_buffer.moveTo(
               column_x + 100,
               row_y - 30
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x + 200,
               row_y
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x + 200,
               row_y + 50
             );
-            buffer.lineTo(
+            canvas_buffer.lineTo(
               column_x + 100,
               row_y + 20
             );
-            buffer.closePath();
-            buffer.fill();
+            canvas_buffer.closePath();
+            canvas_buffer.fill();
         }while(column--);
     }while(row--);
 }
@@ -72,7 +72,7 @@ function random_hex(){
 }
 
 function resize_logic(){
-    draw();
+    canvas_draw();
 }
 
 function update_colors(){
@@ -86,7 +86,7 @@ var color_left = random_hex();
 var color_right = random_hex();
 
 window.onload = function(e){
-    init_canvas();
+    canvas_init();
     input_init(
       {
         'all': {
