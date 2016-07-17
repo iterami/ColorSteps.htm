@@ -63,14 +63,6 @@ function draw_logic(){
     }while(row--);
 }
 
-function random_hex(){
-    var choices = '0123456789abcdef';
-    return '#'
-      + choices.charAt(Math.floor(Math.random() * 16))
-      + choices.charAt(Math.floor(Math.random() * 16))
-      + choices.charAt(Math.floor(Math.random() * 16));
-}
-
 function resize_logic(){
     canvas_draw();
 }
@@ -82,8 +74,8 @@ function update_colors(){
     draw_logic();
 }
 
-var color_left = random_hex();
-var color_right = random_hex();
+var color_left = '';
+var color_right = '';
 
 window.onload = function(e){
     canvas_init();
