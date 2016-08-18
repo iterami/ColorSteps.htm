@@ -63,15 +63,10 @@ function draw_logic(){
     }while(row--);
 }
 
-function resize_logic(){
-    canvas_draw();
-}
-
 function update_colors(){
     color_left = random_hex();
     color_right = random_hex();
     document.getElementById('canvas').style.background = random_hex();
-    draw_logic();
 }
 
 var color_left = '';
