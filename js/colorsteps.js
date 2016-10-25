@@ -12,25 +12,28 @@ function draw_logic(){
               column * 200
               + (row % 2 === 0 ? 100 : 0);
 
-            canvas_buffer.beginPath();
-            canvas_buffer.moveTo(
-              column_x,
-              row_y
+            canvas_draw_path(
+              [
+                {
+                  'type': 'moveTo',
+                  'x': column_x,
+                  'y': row_y,
+                },
+                {
+                  'x': column_x + 100,
+                  'y': row_y - 30,
+                },
+                {
+                  'x': column_x + 100,
+                  'y': row_y + 20,
+                },
+                {
+                  'x': column_x,
+                  'y': row_y + 50,
+                },
+              ],
+              {}
             );
-            canvas_buffer.lineTo(
-              column_x + 100,
-              row_y - 30
-            );
-            canvas_buffer.lineTo(
-              column_x + 100,
-              row_y + 20
-            );
-            canvas_buffer.lineTo(
-              column_x,
-              row_y + 50
-            );
-            canvas_buffer.closePath();
-            canvas_buffer.fill();
         }while(column--);
 
         canvas_buffer.fillStyle = color_right;
@@ -40,25 +43,28 @@ function draw_logic(){
               column * 200
               - (row % 2 === 0 ? 100 : 0);
 
-            canvas_buffer.beginPath();
-            canvas_buffer.moveTo(
-              column_x + 100,
-              row_y - 30
+            canvas_draw_path(
+              [
+                {
+                  'type': 'moveTo',
+                  'x': column_x + 100,
+                  'y': row_y - 30,
+                },
+                {
+                  'x': column_x + 200,
+                  'y': row_y,
+                },
+                {
+                  'x': column_x + 200,
+                  'y': row_y + 50,
+                },
+                {
+                  'x': column_x + 100,
+                  'y': row_y + 20,
+                },
+              ],
+              {}
             );
-            canvas_buffer.lineTo(
-              column_x + 200,
-              row_y
-            );
-            canvas_buffer.lineTo(
-              column_x + 200,
-              row_y + 50
-            );
-            canvas_buffer.lineTo(
-              column_x + 100,
-              row_y + 20
-            );
-            canvas_buffer.closePath();
-            canvas_buffer.fill();
         }while(column--);
     }while(row--);
 }
