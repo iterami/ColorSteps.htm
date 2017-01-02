@@ -12,8 +12,8 @@ function draw_logic(){
               column * 200
               + (row % 2 === 0 ? 100 : 0);
 
-            canvas_draw_path(
-              [
+            canvas_draw_path({
+              'vertices': [
                 {
                   'type': 'moveTo',
                   'x': column_x,
@@ -32,8 +32,7 @@ function draw_logic(){
                   'y': row_y + 50,
                 },
               ],
-              {}
-            );
+            });
         }while(column--);
 
         canvas_buffer.fillStyle = color_right;
@@ -43,8 +42,8 @@ function draw_logic(){
               column * 200
               - (row % 2 === 0 ? 100 : 0);
 
-            canvas_draw_path(
-              [
+            canvas_draw_path({
+              'vertices': [
                 {
                   'type': 'moveTo',
                   'x': column_x + 100,
@@ -63,8 +62,7 @@ function draw_logic(){
                   'y': row_y + 20,
                 },
               ],
-              {}
-            );
+            });
         }while(column--);
     }while(row--);
 }
