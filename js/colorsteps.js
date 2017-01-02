@@ -80,18 +80,18 @@ var color_right = '';
 
 window.onload = function(e){
     canvas_init();
-    input_init(
-      {
+    input_init({
+      'keybinds': {
         'all': {
           'todo': update_colors,
         },
       },
-      {
+      'mousebinds': {
         'mousedown': {
           'todo': update_colors,
         },
-      }
-    );
+      },
+    });
 
     update_colors();
 };
