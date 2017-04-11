@@ -1,12 +1,12 @@
 'use strict';
 
 function draw_logic(){
-    var row = Math.floor(canvas_height / 80);
+    var row = rows;
     do{
         var row_y = canvas_height - row * 80 - 50;
 
         canvas_buffer.fillStyle = color_left;
-        var column = Math.floor(canvas_width / 200);
+        var column = columns;
         do{
             var column_x =
               column * 200
@@ -36,7 +36,7 @@ function draw_logic(){
         }while(column--);
 
         canvas_buffer.fillStyle = color_right;
-        column = Math.floor(canvas_width / 200);
+        column = columns;
         do{
             column_x =
               column * 200
@@ -67,6 +67,11 @@ function draw_logic(){
     }while(row--);
 }
 
+function resize_logic(){
+    columns = Math.floor(canvas_width / 200);
+    rows = Math.floor(canvas_height / 80);
+}
+
 function update_colors(){
     color_left = '#' + random_hex();
     color_right = '#' + random_hex();
@@ -75,6 +80,8 @@ function update_colors(){
 
 var color_left = '';
 var color_right = '';
+var columns = 0;
+var rows = 0;
 
 window.onload = function(e){
     canvas_init();
