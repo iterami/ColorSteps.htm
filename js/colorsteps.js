@@ -73,9 +73,9 @@ function resize_logic(){
 }
 
 function update_colors(){
-    color_left = '#' + random_hex();
-    color_right = '#' + random_hex();
-    document.getElementById('canvas').style.background = '#' + random_hex();
+    color_left = '#' + core_random_hex();
+    color_right = '#' + core_random_hex();
+    document.getElementById('canvas').style.background = '#' + core_random_hex();
 }
 
 var color_left = '';
