@@ -85,7 +85,7 @@ var rows = 0;
 
 window.onload = function(e){
     canvas_init();
-    input_init({
+    core_input_init({
       'keybinds': {
         'all': {
           'todo': update_colors,
