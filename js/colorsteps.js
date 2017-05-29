@@ -67,6 +67,24 @@ function draw_logic(){
     }while(row--);
 }
 
+function repo_init(){
+    canvas_init();
+    core_input_binds_add({
+      'keybinds': {
+        'all': {
+          'todo': update_colors,
+        },
+      },
+      'mousebinds': {
+        'mousedown': {
+          'todo': update_colors,
+        },
+      },
+    });
+
+    update_colors();
+}
+
 function resize_logic(){
     columns = Math.floor(canvas_width / 200);
     rows = Math.floor(canvas_height / 80);
@@ -82,21 +100,3 @@ var color_left = '';
 var color_right = '';
 var columns = 0;
 var rows = 0;
-
-window.onload = function(e){
-    canvas_init();
-    core_input_init({
-      'keybinds': {
-        'all': {
-          'todo': update_colors,
-        },
-      },
-      'mousebinds': {
-        'mousedown': {
-          'todo': update_colors,
-        },
-      },
-    });
-
-    update_colors();
-};
