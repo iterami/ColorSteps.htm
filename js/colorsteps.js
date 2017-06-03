@@ -68,8 +68,7 @@ function draw_logic(){
 }
 
 function repo_init(){
-    canvas_init();
-    core_input_binds_add({
+    core_events_bind({
       'keybinds': {
         'all': {
           'todo': update_colors,
@@ -81,6 +80,7 @@ function repo_init(){
         },
       },
     });
+    canvas_init();
 
     update_colors();
 }
