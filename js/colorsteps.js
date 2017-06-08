@@ -68,6 +68,9 @@ function draw_logic(){
 }
 
 function repo_init(){
+    core_repo_init({
+      'title': 'ColorSteps.htm',
+    });
     core_events_bind({
       'keybinds': {
         'all': {
