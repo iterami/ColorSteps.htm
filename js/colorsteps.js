@@ -69,9 +69,6 @@ function draw_logic(){
 
 function repo_init(){
     core_repo_init({
-      'title': 'ColorSteps.htm',
-    });
-    core_events_bind({
       'keybinds': {
         'all': {
           'todo': update_colors,
@@ -82,6 +79,7 @@ function repo_init(){
           'todo': update_colors,
         },
       },
+      'title': 'ColorSteps.htm',
     });
     canvas_init();
 
