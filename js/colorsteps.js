@@ -69,21 +69,17 @@ function draw_logic(){
 
 function repo_init(){
     core_repo_init({
-      'keybinds': {
-        'all': {
-          'todo': update_colors,
-        },
-      },
-      'mousebinds': {
-        'mousedown': {
-          'todo': update_colors,
-        },
-      },
+      'info': '<input id=randomize type=button value="Randomize Colors">',
       'title': 'ColorSteps.htm',
     });
     canvas_init();
 
     update_colors();
+
+    document.getElementById('randomize').onclick = function(){
+        update_colors();
+        core_escape();
+    }
 }
 
 function resize_logic(){
