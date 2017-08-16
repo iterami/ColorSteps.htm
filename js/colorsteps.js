@@ -79,7 +79,7 @@ function repo_init(){
     document.getElementById('randomize').onclick = function(){
         update_colors();
         core_escape();
-    }
+    };
 }
 
 function resize_logic(){
