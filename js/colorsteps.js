@@ -5,7 +5,6 @@ function draw_logic(){
     do{
         var row_y = canvas_height - row * 80 - 50;
 
-        canvas_buffer.fillStyle = color_left;
         var column = columns;
         do{
             var column_x =
@@ -13,6 +12,9 @@ function draw_logic(){
               + (row % 2 === 0 ? 100 : 0);
 
             canvas_draw_path({
+              'properties': {
+                'fillStyle': color_left,
+              },
               'vertices': [
                 {
                   'type': 'moveTo',
@@ -33,16 +35,15 @@ function draw_logic(){
                 },
               ],
             });
-        }while(column--);
 
-        canvas_buffer.fillStyle = color_right;
-        column = columns;
-        do{
             column_x =
               column * 200
               - (row % 2 === 0 ? 100 : 0);
 
             canvas_draw_path({
+              'properties': {
+                'fillStyle': color_right,
+              },
               'vertices': [
                 {
                   'type': 'moveTo',
