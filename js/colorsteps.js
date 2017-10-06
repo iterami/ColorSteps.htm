@@ -3,7 +3,7 @@
 function draw_logic(){
     var row = rows;
     do{
-        var row_y = canvas_height - row * 80 - 50;
+        var row_y = canvas_properties['height'] - row * 80 - 50;
 
         var column = columns;
         do{
@@ -84,8 +84,8 @@ function repo_init(){
 }
 
 function resize_logic(){
-    columns = Math.floor(canvas_width / 200);
-    rows = Math.floor(canvas_height / 80);
+    columns = Math.floor(canvas_properties['width'] / 200);
+    rows = Math.floor(canvas_properties['height'] / 80);
 }
 
 function update_colors(){
