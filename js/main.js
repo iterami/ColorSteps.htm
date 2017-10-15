@@ -87,14 +87,3 @@ function resize_logic(){
     columns = Math.floor(canvas_properties['width'] / 200);
     rows = Math.floor(canvas_properties['height'] / 80);
 }
-
-function update_colors(){
-    color_left = '#' + core_random_hex();
-    color_right = '#' + core_random_hex();
-    document.getElementById('canvas').style.background = '#' + core_random_hex();
-}
-
-var color_left = '';
-var color_right = '';
-var columns = 0;
-var rows = 0;
