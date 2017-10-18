@@ -71,16 +71,19 @@ function draw_logic(){
 function repo_init(){
     core_repo_init({
       'info': '<input id=randomize type=button value="Randomize Colors">',
+      'info-events': {
+        'randomize': {
+          'todo': function(){
+              update_colors();
+              core_escape();
+          },
+        },
+      },
       'title': 'ColorSteps.htm',
     });
     canvas_init();
 
     update_colors();
-
-    document.getElementById('randomize').onclick = function(){
-        update_colors();
-        core_escape();
-    };
 }
 
 function resize_logic(){
