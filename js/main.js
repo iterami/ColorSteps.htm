@@ -70,6 +70,12 @@ function draw_logic(){
 
 function repo_init(){
     core_repo_init({
+      'globals': {
+        'color_left': '',
+        'color_right': '',
+        'columns': 0,
+        'rows': 0,
+      },
       'info': '<input id=randomize type=button value="Randomize Colors">',
       'info-events': {
         'randomize': {
