@@ -70,6 +70,14 @@ function draw_logic(){
 
 function repo_init(){
     core_repo_init({
+      'events': {
+        'randomize': {
+          'onclick': function(){
+              update_colors();
+              core_escape();
+          },
+        },
+      },
       'globals': {
         'color_left': '',
         'color_right': '',
@@ -77,14 +85,6 @@ function repo_init(){
         'rows': 0,
       },
       'info': '<input id=randomize type=button value="Randomize Colors">',
-      'info-events': {
-        'randomize': {
-          'todo': function(){
-              update_colors();
-              core_escape();
-          },
-        },
-      },
       'title': 'ColorSteps.htm',
     });
     canvas_init();
