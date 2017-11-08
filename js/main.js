@@ -74,7 +74,7 @@ function repo_init(){
         'randomize': {
           'onclick': function(){
               update_colors();
-              core_escape();
+              canvas_draw();
           },
         },
       },
