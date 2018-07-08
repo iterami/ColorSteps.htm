@@ -1,13 +1,13 @@
 'use strict';
 
 function draw_logic(){
-    var row = rows;
+    let row = rows;
     do{
-        var row_y = canvas_properties['height'] - row * 80 - 50;
+        let row_y = canvas_properties['height'] - row * 80 - 50;
 
-        var column = columns;
+        let column = columns;
         do{
-            var column_x =
+            let column_x =
               column * 200
               + (row % 2 === 0 ? 100 : 0);
 
