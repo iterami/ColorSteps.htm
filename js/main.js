@@ -85,11 +85,13 @@ function repo_init(){
         'rows': 0,
       },
       'info': '<input id=randomize type=button value="Randomize Colors">',
+      'menu': true,
       'title': 'ColorSteps.htm',
     });
     canvas_init();
 
     update_colors();
+    canvas_draw();
 }
 
 function resize_logic(){
