@@ -1,6 +1,11 @@
 'use strict';
 
 function draw_logic(){
+    columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
+    rows = Math.floor(canvas_properties['height'] / 80);
+
+    let step_x_half = core_storage_data['step-x'] / 2;
+
     let row = rows;
     do{
         let row_y = canvas_properties['height'] - row * 80 - 50;
@@ -8,8 +13,8 @@ function draw_logic(){
         let column = columns;
         do{
             let column_x =
-              column * 200
-              + (row % 2 === 0 ? 100 : 0);
+              column * core_storage_data['step-x']
+              + (row % 2 === 0 ? step_x_half : 0);
 
             canvas_draw_path({
               'properties': {
@@ -22,11 +27,11 @@ function draw_logic(){
                   'y': row_y,
                 },
                 {
-                  'x': column_x + 100,
+                  'x': column_x + step_x_half,
                   'y': row_y - 30,
                 },
                 {
-                  'x': column_x + 100,
+                  'x': column_x + step_x_half,
                   'y': row_y + 20,
                 },
                 {
@@ -37,8 +42,8 @@ function draw_logic(){
             });
 
             column_x =
-              column * 200
-              - (row % 2 === 0 ? 100 : 0);
+              column * core_storage_data['step-x']
+              - (row % 2 === 0 ? step_x_half : 0);
 
             canvas_draw_path({
               'properties': {
@@ -47,19 +52,19 @@ function draw_logic(){
               'vertices': [
                 {
                   'type': 'moveTo',
-                  'x': column_x + 100,
+                  'x': column_x + step_x_half,
                   'y': row_y - 30,
                 },
                 {
-                  'x': column_x + 200,
+                  'x': column_x + core_storage_data['step-x'],
                   'y': row_y,
                 },
                 {
-                  'x': column_x + 200,
+                  'x': column_x + core_storage_data['step-x'],
                   'y': row_y + 50,
                 },
                 {
-                  'x': column_x + 100,
+                  'x': column_x + step_x_half,
                   'y': row_y + 20,
                 },
               ],
@@ -72,10 +77,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'randomize': {
-          'onclick': function(){
-              update_colors();
-              canvas_draw();
-          },
+          'onclick': update_colors,
         },
       },
       'globals': {
@@ -86,15 +88,13 @@ function repo_init(){
       },
       'info': '<input id=randomize type=button value="Randomize Colors">',
       'menu': true,
+      'storage': {
+        'step-x': 200,
+      },
+      'storage-menu': '<table><tr><td><input id=step-x><td>Step X</table>',
       'title': 'ColorSteps.htm',
     });
     canvas_init();
 
     update_colors();
-    canvas_draw();
-}
-
-function resize_logic(){
-    columns = Math.floor(canvas_properties['width'] / 200);
-    rows = Math.floor(canvas_properties['height'] / 80);
 }
