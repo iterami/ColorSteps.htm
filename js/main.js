@@ -77,7 +77,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'randomize': {
-          'onclick': update_colors,
+          'onclick': core_repo_reset,
         },
       },
       'globals': {
@@ -88,6 +88,7 @@ function repo_init(){
       },
       'info': '<input id=randomize type=button value="Randomize Colors">',
       'menu': true,
+      'reset': update_colors,
       'storage': {
         'step-x': 200,
       },
