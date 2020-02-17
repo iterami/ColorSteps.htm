@@ -4,11 +4,11 @@ function draw_logic(){
     columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
     rows = Math.floor(canvas_properties['height'] / 80);
 
-    let step_x_half = core_storage_data['step-x'] / 2;
+    const step_x_half = core_storage_data['step-x'] / 2;
 
     let row = rows;
     do{
-        let row_y = canvas_properties['height'] - row * 80 - 50;
+        const row_y = canvas_properties['height'] - row * 80 - 50;
 
         let column = columns;
         do{
