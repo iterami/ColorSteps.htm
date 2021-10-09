@@ -2,13 +2,16 @@
 
 function draw_logic(){
     columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
-    rows = Math.floor(canvas_properties['height'] / 80);
+    rows = Math.floor(canvas_properties['height'] / core_storage_data['step-y']);
 
     const step_x_half = core_storage_data['step-x'] / 2;
+    const step_y = core_storage_data['step-y'] * .625;
+    const step_y_bottom = step_y * .6;
+    const step_y_top = step_y * .4;
 
     let row = rows;
     do{
-        const row_y = canvas_properties['height'] - row * 80 - 50;
+        const row_y = canvas_properties['height'] - row * core_storage_data['step-y'] - step_y;
 
         let column = columns;
         do{
@@ -28,15 +31,15 @@ function draw_logic(){
                 },
                 {
                   'x': column_x + step_x_half,
-                  'y': row_y - 30,
+                  'y': row_y - step_y_bottom,
                 },
                 {
                   'x': column_x + step_x_half,
-                  'y': row_y + 20,
+                  'y': row_y + step_y_top,
                 },
                 {
                   'x': column_x,
-                  'y': row_y + 50,
+                  'y': row_y + step_y,
                 },
               ],
             });
@@ -53,7 +56,7 @@ function draw_logic(){
                 {
                   'type': 'moveTo',
                   'x': column_x + step_x_half,
-                  'y': row_y - 30,
+                  'y': row_y - step_y_bottom,
                 },
                 {
                   'x': column_x + core_storage_data['step-x'],
@@ -61,11 +64,11 @@ function draw_logic(){
                 },
                 {
                   'x': column_x + core_storage_data['step-x'],
-                  'y': row_y + 50,
+                  'y': row_y + step_y,
                 },
                 {
                   'x': column_x + step_x_half,
-                  'y': row_y + 20,
+                  'y': row_y + step_y_top,
                 },
               ],
             });
@@ -91,8 +94,10 @@ function repo_init(){
       'reset': update_colors,
       'storage': {
         'step-x': 200,
+        'step-y': 80,
       },
-      'storage-menu': '<table><tr><td><input id=step-x><td>Step X</table>',
+      'storage-menu': '<table><tr><td><input id=step-x><td>Step X'
+        + '<tr><td><input id=step-y><td>Step Y</table>',
       'title': 'ColorSteps.htm',
     });
     canvas_init();
