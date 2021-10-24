@@ -1,6 +1,6 @@
 'use strict';
 
-function draw_logic(){
+function repo_drawlogic(){
     columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
     rows = Math.floor(canvas_properties['height'] / core_storage_data['step-y']);
 
