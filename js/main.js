@@ -96,8 +96,8 @@ function repo_init(){
         'step-x': 200,
         'step-y': 80,
       },
-      'storage-menu': '<table><tr><td><input id=step-x step=any type=number><td>Step X'
-        + '<tr><td><input id=step-y step=any type=number><td>Step Y</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=step-x step=any type=number><td>Step X'
+        + '<tr><td><input class=mini id=step-y step=any type=number><td>Step Y</table>',
       'title': 'ColorSteps.htm',
     });
     canvas_init();
