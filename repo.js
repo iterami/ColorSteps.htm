@@ -105,6 +105,9 @@ function repo_init(){
     update_colors();
 }
 
+function repo_logic(){
+}
+
 function update_colors(){
     color_left = '#' + core_random_hex();
     color_right = '#' + core_random_hex();
