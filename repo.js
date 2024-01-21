@@ -89,7 +89,7 @@ function repo_init(){
         'columns': 0,
         'rows': 0,
       },
-      'info': '<input id=randomize type=button value="Randomize Colors">',
+      'info': '<button id=randomize type=button>Randomize Colors</button>',
       'menu': true,
       'reset': update_colors,
       'storage': {
