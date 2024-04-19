@@ -11,14 +11,12 @@ function repo_drawlogic(){
 
     let row = rows;
     do{
+        const row_x = row & 1 ? step_x_half : 0;
         const row_y = canvas_properties['height'] - row * core_storage_data['step-y'] - step_y;
 
         let column = columns;
         do{
-            let column_x =
-              column * core_storage_data['step-x']
-              + (row % 2 === 0 ? step_x_half : 0);
-
+            let column_x = column * core_storage_data['step-x'] + row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_left,
@@ -44,10 +42,7 @@ function repo_drawlogic(){
               ],
             });
 
-            column_x =
-              column * core_storage_data['step-x']
-              - (row % 2 === 0 ? step_x_half : 0);
-
+            column_x = column * core_storage_data['step-x'] - row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_right,
