@@ -22,23 +22,26 @@ function repo_drawlogic(){
                 'fillStyle': color_left,
               },
               'vertices': [
-                {
-                  'type': 'moveTo',
-                  'x': column_x,
-                  'y': row_y,
-                },
-                {
-                  'x': column_x + step_x_half,
-                  'y': row_y - step_y_bottom,
-                },
-                {
-                  'x': column_x + step_x_half,
-                  'y': row_y + step_y_top,
-                },
-                {
-                  'x': column_x,
-                  'y': row_y + step_y,
-                },
+                [
+                  'moveTo',
+                  column_x,
+                  row_y,
+                ],
+                [
+                  'lineTo',
+                  column_x + step_x_half,
+                  row_y - step_y_bottom,
+                ],
+                [
+                  'lineTo',
+                  column_x + step_x_half,
+                  row_y + step_y_top,
+                ],
+                [
+                  'lineTo',
+                  column_x,
+                  row_y + step_y,
+                ],
               ],
             });
 
@@ -48,23 +51,26 @@ function repo_drawlogic(){
                 'fillStyle': color_right,
               },
               'vertices': [
-                {
-                  'type': 'moveTo',
-                  'x': column_x + step_x_half,
-                  'y': row_y - step_y_bottom,
-                },
-                {
-                  'x': column_x + core_storage_data['step-x'],
-                  'y': row_y,
-                },
-                {
-                  'x': column_x + core_storage_data['step-x'],
-                  'y': row_y + step_y,
-                },
-                {
-                  'x': column_x + step_x_half,
-                  'y': row_y + step_y_top,
-                },
+                [
+                  'moveTo',
+                  column_x + step_x_half,
+                  row_y - step_y_bottom,
+                ],
+                [
+                  'lineTo',
+                  column_x + core_storage_data['step-x'],
+                  row_y,
+                ],
+                [
+                  'lineTo',
+                  column_x + core_storage_data['step-x'],
+                  row_y + step_y,
+                ],
+                [
+                  'lineTo',
+                  column_x + step_x_half,
+                  row_y + step_y_top,
+                ],
               ],
             });
         }while(column--);
