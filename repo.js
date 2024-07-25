@@ -101,7 +101,9 @@ function repo_init(){
         + '<tr><td><input class=mini id=step-y step=any type=number><td>Step Y</table>',
       'title': 'ColorSteps.htm',
     });
-    canvas_init();
+    canvas_init({
+      'interval': false,
+    });
 
     update_colors();
 }
