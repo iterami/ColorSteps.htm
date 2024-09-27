@@ -1,5 +1,12 @@
 'use strict';
 
+function load_data(){
+    color_left = '#' + core_random_hex();
+    color_right = '#' + core_random_hex();
+    canvas_properties['clearColor'] = '#' + core_random_hex();
+    canvas_draw();
+}
+
 function repo_drawlogic(){
     columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
     rows = Math.floor(canvas_properties['height'] / core_storage_data['step-y']);
@@ -91,8 +98,7 @@ function repo_init(){
         'rows': 0,
       },
       'info': '<button id=randomize type=button>Randomize Colors</button>',
-      'menu': true,
-      'reset': update_colors,
+      'reset': canvas_setmode,
       'storage': {
         'step-x': 200,
         'step-y': 80,
@@ -104,18 +110,4 @@ function repo_init(){
     canvas_init({
       'interval': false,
     });
-
-    update_colors();
-}
-
-function update_colors(){
-    color_left = '#' + core_random_hex();
-    color_right = '#' + core_random_hex();
-    canvas_properties['clearColor'] = '#' + core_random_hex();
-
-    core_storage_save([
-      'step-x',
-      'step-y',
-    ]);
-    canvas_draw();
 }
