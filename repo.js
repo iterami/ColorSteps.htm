@@ -88,7 +88,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'randomize': {
-          'onclick': core_repo_reset,
+          'onclick': load_data,
         },
       },
       'globals': {
