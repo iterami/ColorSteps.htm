@@ -98,7 +98,6 @@ function repo_init(){
         'rows': 0,
       },
       'info': '<button id=randomize type=button>Randomize Colors</button>',
-      'reset': canvas_setmode,
       'storage': {
         'step-x': 200,
         'step-y': 80,
