@@ -3,27 +3,27 @@
 function load_data(){
     color_left = '#' + core_random_hex();
     color_right = '#' + core_random_hex();
-    canvas_properties['clearColor'] = '#' + core_random_hex();
+    canvas_properties.clearColor = '#' + core_random_hex();
     canvas_draw();
 }
 
 function repo_drawlogic(){
-    columns = Math.floor(canvas_properties['width'] / core_storage_data['step-x']);
-    rows = Math.floor(canvas_properties['height'] / core_storage_data['step-y']);
+    columns = Math.floor(canvas_properties.width / core_storage_data.step_x);
+    rows = Math.floor(canvas_properties.height / core_storage_data.step_y);
 
-    const step_x_half = core_storage_data['step-x'] / 2;
-    const step_y = core_storage_data['step-y'] * .625;
+    const step_x_half = core_storage_data.step_x / 2;
+    const step_y = core_storage_data.step_y * .625;
     const step_y_bottom = step_y * .6;
     const step_y_top = step_y * .4;
 
     let row = rows;
     do{
         const row_x = row & 1 ? step_x_half : 0;
-        const row_y = canvas_properties['height'] - row * core_storage_data['step-y'] - step_y;
+        const row_y = canvas_properties.height - row * core_storage_data.step_y - step_y;
 
         let column = columns;
         do{
-            let column_x = column * core_storage_data['step-x'] + row_x;
+            let column_x = column * core_storage_data.step_x + row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_left,
@@ -52,7 +52,7 @@ function repo_drawlogic(){
               ],
             });
 
-            column_x = column * core_storage_data['step-x'] - row_x;
+            column_x = column * core_storage_data.step_x - row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_right,
@@ -65,12 +65,12 @@ function repo_drawlogic(){
                 ],
                 [
                   'lineTo',
-                  column_x + core_storage_data['step-x'],
+                  column_x + core_storage_data.step_x,
                   row_y,
                 ],
                 [
                   'lineTo',
-                  column_x + core_storage_data['step-x'],
+                  column_x + core_storage_data.step_x,
                   row_y + step_y,
                 ],
                 [
@@ -99,11 +99,11 @@ function repo_init(){
       },
       'info': '<button id=randomize type=button>Randomize Colors</button>',
       'storage': {
-        'step-x': 200,
-        'step-y': 80,
+        'step_x': 200,
+        'step_y': 80,
       },
-      'storage-menu': '<table><tr><td><input class=mini id=step-x step=any type=number><td>Step X'
-        + '<tr><td><input class=mini id=step-y step=any type=number><td>Step Y</table>',
+      'storage-menu': '<table><tr><td><input class=mini id=step_x step=any type=number><td>Step X'
+        + '<tr><td><input class=mini id=step_y step=any type=number><td>Step Y</table>',
       'title': 'ColorSteps.htm',
     });
     canvas_init({
