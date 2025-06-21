@@ -102,7 +102,7 @@ function repo_init(){
         'step_x': 200,
         'step_y': 80,
       },
-      'storage-menu': '<table><tr><td><input class=mini id=step_x step=any type=number><td>Step X'
+      'storage_menu': '<table><tr><td><input class=mini id=step_x step=any type=number><td>Step X'
         + '<tr><td><input class=mini id=step_y step=any type=number><td>Step Y</table>',
       'title': 'ColorSteps.htm',
     });
