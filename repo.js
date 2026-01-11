@@ -1,12 +1,5 @@
 'use strict';
 
-function load_data(){
-    color_left = '#' + core_random_hex();
-    color_right = '#' + core_random_hex();
-    canvas_properties.clearColor = '#' + core_random_hex();
-    canvas_draw();
-}
-
 function repo_drawlogic(){
     columns = Math.floor(canvas_properties.width / core_storage_data.step_x);
     rows = Math.floor(canvas_properties.height / core_storage_data.step_y);
@@ -88,7 +81,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'randomize': {
-          'onclick': load_data,
+          'onclick': repo_load,
         },
       },
       'globals': {
@@ -109,4 +102,11 @@ function repo_init(){
     canvas_init({
       'interval': false,
     });
+}
+
+function repo_load(){
+    color_left = '#' + core_random_hex();
+    color_right = '#' + core_random_hex();
+    canvas_properties.clearColor = '#' + core_random_hex();
+    canvas_draw();
 }
