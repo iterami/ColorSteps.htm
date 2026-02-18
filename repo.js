@@ -90,7 +90,7 @@ function repo_init(){
         'columns': 0,
         'rows': 0,
       },
-      'info': '<button id=randomize type=button>Randomize Colors</button>',
+      'info': '<button class=medium id=randomize type=button>Randomize Colors</button>',
       'storage': {
         'step_x': 200,
         'step_y': 80,
