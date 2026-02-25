@@ -1,22 +1,19 @@
 'use strict';
 
 function repo_drawlogic(){
-    columns = Math.floor(canvas_properties.width / core_storage_data.step_x);
-    rows = Math.floor(canvas_properties.height / core_storage_data.step_y);
-
+    const columns = Math.ceil(canvas_properties.width / core_storage_data.step_x);
+    const rows = Math.ceil(canvas_properties.height / core_storage_data.step_y);
     const step_x_half = core_storage_data.step_x / 2;
     const step_y = core_storage_data.step_y * .625;
     const step_y_bottom = step_y * .6;
     const step_y_top = step_y * .4;
 
-    let row = rows;
-    do{
-        const row_x = row & 1 ? step_x_half : 0;
-        const row_y = canvas_properties.height - row * core_storage_data.step_y - step_y;
+    for(let i = 0; i < rows; i++){
+        const row_x = i & 1 ? step_x_half : 0;
+        const row_y = canvas_properties.height - i * core_storage_data.step_y - step_y;
 
-        let column = columns;
-        do{
-            let column_x = column * core_storage_data.step_x + row_x;
+        for(let j = 0; j < columns; j++){
+            let column_x = j * core_storage_data.step_x + row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_left,
@@ -45,7 +42,7 @@ function repo_drawlogic(){
               ],
             });
 
-            column_x = column * core_storage_data.step_x - row_x;
+            column_x = j * core_storage_data.step_x - row_x;
             canvas_draw_path({
               'properties': {
                 'fillStyle': color_right,
@@ -73,8 +70,8 @@ function repo_drawlogic(){
                 ],
               ],
             });
-        }while(column--);
-    }while(row--);
+        }
+    }
 }
 
 function repo_init(){
@@ -87,8 +84,6 @@ function repo_init(){
       'globals': {
         'color_left': '',
         'color_right': '',
-        'columns': 0,
-        'rows': 0,
       },
       'info': '<button class=medium id=randomize type=button>Randomize Colors</button>',
       'storage': {
